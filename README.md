@@ -55,3 +55,14 @@ The repository includes these supporting files:
 ## Full review
 
 For the complete methodology, screenshots, plan details, and full analysis, read the [ScalaHosting Review on GoogieHost](https://googiehost.com/blog/scalahosting-review/).
+
+
+## Google Search Console verification reference
+
+The following verification meta tag was supplied for reference:
+
+```html
+<meta name="google-site-verification" content="QM7rYTErGm7vRxH_7vT29N6QedWlkoaPPINmd5onx-s" />
+```
+
+**Important:** Adding this tag to this README does not verify a website in Google Search Console. For verification, the tag must be placed in the `<head>` section of the homepage HTML for the website being verified.
