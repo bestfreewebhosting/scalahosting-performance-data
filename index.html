@@ -4,63 +4,103 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="QM7rYTErGm7vRxH_7vT29N6QedWlkoaPPINmd5onx-s">
-  <meta name="description" content="Supporting performance testing notes and resources for the GoogieHost ScalaHosting review.">
-  <title>ScalaHosting Performance Test Data | GoogieHost</title>
+  <meta name="description" content="Key findings, performance testing context, uptime observations, and supporting test resources for the GoogieHost ScalaHosting review.">
+  <title>ScalaHosting Review: Key Findings &amp; Performance Test Notes | GoogieHost</title>
   <style>
     :root { color-scheme: light; --ink:#172033; --muted:#586579; --line:#e3e8ef; --blue:#2457d6; --bg:#f5f7fb; }
     * { box-sizing:border-box; }
-    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
-    main { width:min(900px, calc(100% - 32px)); margin:56px auto; }
-    header, section { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px; margin-bottom:18px; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+    main { width:min(960px,calc(100% - 32px)); margin:42px auto; }
+    header, section { background:#fff; border:1px solid var(--line); border-radius:14px; padding:clamp(20px,4vw,30px); margin-bottom:18px; }
     .eyebrow { color:var(--blue); font-size:.78rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
-    h1 { margin:.35rem 0 .7rem; font-size:clamp(2rem,5vw,3rem); line-height:1.12; }
-    h2 { margin:0 0 12px; font-size:1.3rem; }
-    p { color:var(--muted); margin:.5rem 0; }
-    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:22px; }
-    .stat { background:#f7f9fd; border:1px solid var(--line); border-radius:12px; padding:16px; }
-    .stat strong { display:block; font-size:1.45rem; color:var(--ink); }
-    ul { padding-left:1.25rem; color:var(--muted); }
-    a { color:var(--blue); text-decoration:none; font-weight:600; }
+    h1 { margin:.35rem 0 .7rem; font-size:clamp(2rem,5vw,2.8rem); line-height:1.15; }
+    h2 { margin:0 0 12px; font-size:1.35rem; line-height:1.3; }
+    h3 { margin:22px 0 8px; font-size:1.05rem; }
+    p { color:var(--muted); margin:.6rem 0; }
+    li { color:var(--muted); margin:.35rem 0; }
+    ul { padding-left:1.3rem; }
+    a { color:var(--blue); font-weight:600; text-decoration:none; }
     a:hover { text-decoration:underline; }
-    footer { color:var(--muted); font-size:.9rem; padding:8px 4px; }
+    .note { background:#f7f9fd; border-left:4px solid var(--blue); padding:14px 16px; border-radius:8px; }
+    .table-wrap { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; min-width:520px; margin:12px 0; }
+    th,td { text-align:left; padding:11px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { background:#f7f9fd; color:var(--ink); }
+    footer { color:var(--muted); font-size:.9rem; padding:10px 4px 24px; }
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <div class="eyebrow">GoogieHost · Review research</div>
-      <h1>ScalaHosting Performance Test Data</h1>
-      <p>This page brings together supporting notes and test resources used in the GoogieHost hands-on review of ScalaHosting. Results are observations from specific tests, not guarantees of performance for every plan or workload.</p>
-      <div class="stats">
-        <div class="stat"><strong>4,052+ hours</strong><span>Uptime monitoring period reported in the review</span></div>
-        <div class="stat"><strong>5,537</strong><span>Requests in the reported k6 test</span></div>
-        <div class="stat"><strong>0</strong><span>Failed requests reported in that k6 run</span></div>
-      </div>
-    </header>
-    <section>
-      <h2>What the review examines</h2>
-      <ul>
-        <li>Uptime and server response-time observations</li>
-        <li>k6 load-test results and test limitations</li>
-        <li>Response times across different locations</li>
-        <li>SPanel, security features, backups, support, and pricing</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Supporting files</h2>
-      <p>Explore the scripts and datasets in the GitHub repository:</p>
-      <ul>
-        <li><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/k6">k6 load-test script</a></li>
-        <li><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/scripts">Uptime and TTFB check scripts</a></li>
-        <li><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/data">CSV test data</a></li>
-        <li><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data">Full GitHub repository</a></li>
-      </ul>
-    </section>
-    <section>
-      <h2>Read the complete review</h2>
-      <p>For the full methodology, screenshots, plan details, and analysis, visit the <a href="https://googiehost.com/blog/scalahosting-review/">ScalaHosting Review on GoogieHost</a>.</p>
-    </section>
-    <footer>Published as a supporting research page. Test results can vary with server location, plan, configuration, workload, and measurement period.</footer>
-  </main>
+<main>
+  <header>
+    <div class="eyebrow">GoogieHost · Review research</div>
+    <h1>ScalaHosting Review: Key Findings &amp; Performance Test Notes</h1>
+    <p>This repository accompanies the GoogieHost review of ScalaHosting. It provides the supporting context for the review's hands-on testing, including uptime monitoring, response-time checks, and load testing.</p>
+    <p>The review looks at ScalaHosting's hosting plans, usability, performance, uptime, customer support, security, backups, data-center locations, and pricing. The overall takeaway is that ScalaHosting is worth considering for users who value managed VPS options, responsive support, security tools, and reliable uptime. Buyers should also compare renewal pricing and understand the performance and backup limitations before choosing a plan.</p>
+  </header>
+
+  <section>
+    <h2>Key takeaways</h2>
+    <ul>
+      <li><strong>Uptime observations:</strong> The review reports 100% uptime during a monitored period of 4,052 hours and 32 minutes. Its longer uptime report lists monthly averages of 99.98%–99.99% for January–March 2026 and yearly averages of 99.98%–99.99% for 2023–2025.</li>
+      <li><strong>Load-test result:</strong> The review reports 5,537 requests with no failed requests in its k6 test and an average response time of 5.695 ms. It also notes that no exact test scenario was configured, so this result should not be treated as a universal capacity benchmark.</li>
+      <li><strong>Response time by location:</strong> The review's Bitcatcha observations indicate that response times were higher in locations farther from the selected server. Choosing a data center close to the intended audience can matter.</li>
+      <li><strong>Customer support:</strong> The review describes quick responses during its support checks, particularly through live chat and phone support. It notes that billing and pre-sales availability is not 24/7.</li>
+      <li><strong>SPanel control panel:</strong> ScalaHosting's in-house SPanel is presented as an alternative to cPanel, with website, email, DNS, and security management features.</li>
+      <li><strong>Security features:</strong> The review highlights free Let's Encrypt SSL, 2FA, CSF Firewall, ModSecurity, SSH access, and SShield security monitoring.</li>
+      <li><strong>Backups:</strong> The review says automatic offsite backups are provided every 24 hours. One limitation is that restoring an offsite backup requires restoring the entire server rather than a single website.</li>
+      <li><strong>Pricing:</strong> Introductory prices can be attractive, but renewal costs are higher. The review's pricing section lists WordPress plans starting at $5.36/month; displayed prices may change.</li>
+      <li><strong>Best fit:</strong> The review positions ScalaHosting as an option for individuals and businesses looking for VPS-focused hosting, management tools, security, and support.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Strengths</h2>
+    <ul>
+      <li>Managed and self-managed VPS options.</li>
+      <li>SPanel control panel as an alternative to paid cPanel licensing.</li>
+      <li>Strong uptime observations during the review's monitoring period.</li>
+      <li>Helpful support experience during the review's checks.</li>
+      <li>Security tools such as SShield, ModSecurity, SSL, and 2FA.</li>
+      <li>Daily offsite backups and a range of data-center locations.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Points to consider</h2>
+    <ul>
+      <li>Renewal pricing can be considerably higher than introductory pricing.</li>
+      <li>Response time depends partly on the visitor's distance from the selected data center.</li>
+      <li>Offsite backup restoration is described as a full-server restore, not a single-site restore.</li>
+      <li>The review notes that SSD coverage is more limited outside VPS hosting.</li>
+      <li>The k6 test did not define an exact scenario, so its result should not be interpreted as a guaranteed performance level for every workload.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Performance testing context</h2>
+    <p>The review describes a sample managed VPS plan using the Sofia, Bulgaria data center for its hands-on tests. It discusses GTmetrix, uptime monitoring, k6 load testing, and Bitcatcha response-time checks. Test outcomes depend on the plan, application, configuration, test location, and measurement period.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Path</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/k6"><code>k6/load-test.js</code></a></td><td>k6 load-test script</td></tr>
+          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/scripts"><code>scripts/ttfb-check.sh</code></a></td><td>Measures DNS, connection, TLS, and TTFB timings using curl</td></tr>
+          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/scripts"><code>scripts/uptime-check.sh</code></a></td><td>Checks HTTP status and response time</td></tr>
+          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/data"><code>data/uptime-log.csv</code></a></td><td>Uptime observations</td></tr>
+          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/data"><code>data/ttfb-by-location.csv</code></a></td><td>TTFB observations by test location</td></tr>
+          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/data"><code>data/k6-results.csv</code></a></td><td>k6 run summaries</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><strong>Note:</strong> The figures summarized above are findings stated in the GoogieHost review. The scripts and CSV files are supporting test resources; not every figure in the article is necessarily reproduced in the current CSV files.</p>
+  </section>
+
+  <section>
+    <h2>Full review</h2>
+    <p>For the complete methodology, screenshots, plan details, and full analysis, read the <a href="https://googiehost.com/blog/scalahosting-review/">ScalaHosting Review on GoogieHost</a>.</p>
+  </section>
+
+  <footer>Supporting research page for the GoogieHost ScalaHosting review. Test results depend on the plan, application, configuration, test location, and measurement period.</footer>
+</main>
 </body>
 </html>
