@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="QM7rYTErGm7vRxH_7vT29N6QedWlkoaPPINmd5onx-s">
+  <meta name="description" content="Supporting performance testing notes and resources for the GoogieHost ScalaHosting review.">
+  <title>ScalaHosting Performance Test Data | GoogieHost</title>
+  <style>
+    :root { color-scheme: light; --ink:#172033; --muted:#586579; --line:#e3e8ef; --blue:#2457d6; --bg:#f5f7fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+    main { width:min(900px, calc(100% - 32px)); margin:56px auto; }
+    header, section { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px; margin-bottom:18px; }
+    .eyebrow { color:var(--blue); font-size:.78rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+    h1 { margin:.35rem 0 .7rem; font-size:clamp(2rem,5vw,3rem); line-height:1.12; }
+    h2 { margin:0 0 12px; font-size:1.3rem; }
+    p { color:var(--muted); margin:.5rem 0; }
+    .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:22px; }
+    .stat { background:#f7f9fd; border:1px solid var(--line); border-radius:12px; padding:16px; }
+    .stat strong { display:block; font-size:1.45rem; color:var(--ink); }
+    ul { padding-left:1.25rem; color:var(--muted); }
+    a { color:var(--blue); text-decoration:none; font-weight:600; }
+    a:hover { text-decoration:underline; }
+    footer { color:var(--muted); font-size:.9rem; padding:8px 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">GoogieHost · Review research</div>
+      <h1>ScalaHosting Performance Test Data</h1>
+      <p>This page brings together supporting notes and test resources used in the GoogieHost hands-on review of ScalaHosting. Results are observations from specific tests, not guarantees of performance for every plan or workload.</p>
+      <div class="stats">
+        <div class="stat"><strong>4,052+ hours</strong><span>Uptime monitoring period reported in the review</span></div>
+        <div class="stat"><strong>5,537</strong><span>Requests in the reported k6 test</span></div>
+        <div class="stat"><strong>0</strong><span>Failed requests reported in that k6 run</span></div>
+      </div>
+    </header>
+    <section>
+      <h2>What the review examines</h2>
+      <ul>
+        <li>Uptime and server response-time observations</li>
+        <li>k6 load-test results and test limitations</li>
+        <li>Response times across different locations</li>
+        <li>SPanel, security features, backups, support, and pricing</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Supporting files</h2>
+      <p>Explore the scripts and datasets in the GitHub repository:</p>
+      <ul>
+        <li><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/k6">k6 load-test script</a></li>
+        <li><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/scripts">Uptime and TTFB check scripts</a></li>
+        <li><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/data">CSV test data</a></li>
+        <li><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data">Full GitHub repository</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Read the complete review</h2>
+      <p>For the full methodology, screenshots, plan details, and analysis, visit the <a href="https://googiehost.com/blog/scalahosting-review/">ScalaHosting Review on GoogieHost</a>.</p>
+    </section>
+    <footer>Published as a supporting research page. Test results can vary with server location, plan, configuration, workload, and measurement period.</footer>
+  </main>
+</body>
+</html>
