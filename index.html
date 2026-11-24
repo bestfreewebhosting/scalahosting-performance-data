@@ -75,26 +75,6 @@
       <li>The k6 test did not define an exact scenario, so its result should not be interpreted as a guaranteed performance level for every workload.</li>
     </ul>
   </section>
-
-  <section>
-    <h2>Performance testing context</h2>
-    <p>The review describes a sample managed VPS plan using the Sofia, Bulgaria data center for its hands-on tests. It discusses GTmetrix, uptime monitoring, k6 load testing, and Bitcatcha response-time checks. Test outcomes depend on the plan, application, configuration, test location, and measurement period.</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Path</th><th>Purpose</th></tr></thead>
-        <tbody>
-          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/k6"><code>k6/load-test.js</code></a></td><td>k6 load-test script</td></tr>
-          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/scripts"><code>scripts/ttfb-check.sh</code></a></td><td>Measures DNS, connection, TLS, and TTFB timings using curl</td></tr>
-          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/scripts"><code>scripts/uptime-check.sh</code></a></td><td>Checks HTTP status and response time</td></tr>
-          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/data"><code>data/uptime-log.csv</code></a></td><td>Uptime observations</td></tr>
-          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/data"><code>data/ttfb-by-location.csv</code></a></td><td>TTFB observations by test location</td></tr>
-          <tr><td><a href="https://github.com/bestfreewebhosting/scalahosting-performance-data/tree/main/data"><code>data/k6-results.csv</code></a></td><td>k6 run summaries</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note"><strong>Note:</strong> The figures summarized above are findings stated in the GoogieHost review. The scripts and CSV files are supporting test resources; not every figure in the article is necessarily reproduced in the current CSV files.</p>
-  </section>
-
   <section>
     <h2>Full review</h2>
     <p>For the complete methodology, screenshots, plan details, and full analysis, read the <a href="https://googiehost.com/blog/scalahosting-review/">ScalaHosting Review on GoogieHost</a>.</p>
