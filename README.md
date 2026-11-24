@@ -57,6 +57,11 @@ The repository includes these supporting files:
 For the complete methodology, screenshots, plan details, and full analysis, read the [ScalaHosting Review on GoogieHost](https://googiehost.com/blog/scalahosting-review/).
 
 
+## Additional Related Resources
+
+- [Watch the ScalaHosting review on YouTube Shorts](https://youtube.com/shorts/8SpplUtWHjI?si=vs8Ihz9hGUqAf3eg)
+- [Watch the ScalaHosting review on DTube](https://d.tube/watch/QjqvWrq2AsXogt9F4e1dXX)
+
 ## Google Search Console verification reference
 
 The following verification meta tag was supplied for reference:
